@@ -1,0 +1,13 @@
+name: wanyou-scraper
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip=22.3
+  - pip:
+    - selenium==4.10.0
+    - html2text==2022.1.0
+    - requests==2.28.2
+    - msedge-selenium-tools==3.141.4
+    - webdriver-manager==3.8.6
