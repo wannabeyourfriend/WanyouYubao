@@ -1,0 +1,17 @@
+# 忽略日志目录
+log/
+
+# Python相关
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 虚拟环境
+venv/
+env/
+ENV/
+
+# IDE相关
+.idea/
+.vscode/
+*.swp

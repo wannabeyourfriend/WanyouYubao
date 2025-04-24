@@ -432,11 +432,20 @@ def hall(doc, filename_jpg):
         doc.write(f"票价: {item['price']}\n")
 
 def main():
-    # 创建 md 文档
+    # 创建 log 目录（如果不存在）
+    log_dir = "log"
+    os.makedirs(log_dir, exist_ok=True)
+    
+    # 创建时间戳子目录
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M")
-    os.makedirs(f"万有预报_{timestamp}", exist_ok=True)
-    filename = f"万有预报_{timestamp}/main.md"
-    filename_jpg = f"万有预报_{timestamp}/"
+    report_dir = os.path.join(log_dir, f"万有预报_{timestamp}")
+    os.makedirs(report_dir, exist_ok=True)
+    
+    # 设置文件路径
+    filename = os.path.join(report_dir, "main.md")
+    filename_jpg = report_dir + os.sep  # 使用os.sep确保跨平台兼容
+    
+    # 打开文档
     doc = open(filename, "w")
 
     # 执行各个爬虫模块
@@ -448,7 +457,7 @@ def main():
     # 关闭文件
     doc.close()
     
-    # 保存文件（按时间戳命名，避免重复）
+    # 输出保存路径
     print(f"文件已保存至：{filename}")
 
 if __name__ == "__main__":
